@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Andagi Company</title>
   <link rel="stylesheet" href="format.css" />
+
 </head>
 <body>
   <header>
-    <h1>The Andagi Company - Android Development</h1>
+    <h1 style="color: black;">David Taylor - Android Development</h1>
     <nav>
         <a href="index.html">Home</a>
         <a href="privacy.html">Privacy</a>
@@ -17,30 +18,89 @@
     <!-- <h3>
         Hello! 
         I'm David Taylor, a software engineer who has been developing android apps for the past 3 years. 
+        I'm from the pudget sound area, I have lived in Washington my whole life.
         In 2025 I have create the Business "The Andagi Company" so that I can publish my first app "Tacoma Music Player", 
         and advertisement free mp3 player which promotes users to become more connected to the music, and is easy to use. 
     </h3> -->
   </header>
 
   <main>
-    <p>
-        Hello! 
-        I'm David Taylor, a software engineer who has been developing android apps for the past 3 years. 
-        In 2025 I have created the Business, "The Andagi Company", so that I can publish my first app "Tacoma Music Player", 
-        and advertisement free mp3 player which promotes users to become more connected to the music, and is easy to use. 
 
-        I want to continue to create useful apps, that are fair to people's time and money. 
-    </p>
+    <div id="videoPopup" class="popup" style="display:none">
 
-    <img src="images/tacoma-music-music-playing-screen.jpg" alt="Tacoma Music Player, Main Music Playing Screen" width="270" height="520">
-    <!-- <button id="clickMe">Click Me</button> -->
+        <div class="videoColumn">
+          <h2 id="videoTitle" style="color: white;"> VIDEO TITLE </h2>
+          <video controls autoplay width="300px">
+            <source id="explanationVideo" src="videos/permission_foreground.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+
+        <img id="closeButton" src="images/close-button.png" width="45px" height="45px">
+      <!-- </div> -->
+    </div>
+
+    <div class="container">
+        
+      <p class="left-item" style="margin-left:20px" >
+          Hello! 
+          I'm David Taylor, a software engineer who has been developing android apps for the past 3 years. <br>
+          I'm from the pudget sound area, I have lived in Washington my whole life. <br>
+          In 2025 I have created the Business, "The Andagi Company", so that I can publish my first app "Tacoma Music Player", <br>
+          and advertisement free mp3 player which promotes users to become more connected to the music, and is easy to use.  <br>
+          I want to continue to create useful apps, that are fair to people's time and money. 
+      </p>
+
+
+      <img class="right-item" src="images/about_dev_photo.png" alt="A picture of David Taylor, android engineer." width="270" height="300">
+
+    </div>
+
+    <div class="section-title">
+      <h1> Projects </h1>
+      <p> Click a Project for video reference. </p>
+    </div>
+
+
+    <div class="row">
+      <div class="column" id="tacomaMusicPlayerProject">
+        <h3>Tacoma Music Player - Android, Google Play </h3>
+        <p> Ad Free, intuitive music player on Google Play Store. </p>
+          <img src="images/tacoma-music-player-blue.png" class="hover-image" alt="Tacoma Music Player, Main Music Playing Screen" width="100%" height="700">
+      </div>
+      <div class="column" id="ecosystemProject">
+        <h3>Samsung Ecosystem - Android, UWP</h3>
+        <p> Multi Device advertisment product for Samsung. </p>
+        <img src="images/ecosystem-png-blue-fr.png" class="hover-image" alt="Ecosystem, a multi device advertisement program." width="100%" height="700">
+      </div>
+      <div class="column" id="demoGeneratorProject">
+        <h3>Demo Generator - Kotlin Multiplatform</h3>
+        <p> Developer Tool for quickly creating demos. </p>
+        <img src="images/demo-generator-card.png" class="hover-image" alt="Developer Tool for quickly creating demos." width="100%" height="700">
+      </div>
+      <div class="column" id="gitlabCIProject">
+        <h3>Automated Build System - Gitlab CI/CD</h3>
+        <p> Utilizing Gitlab CI/CD to seamlessly build apks. </p>
+        <img src="images/gitlab-ci-cd-card.png" class="hover-image" alt="Card with Gitlab CI/CD icon" width="100%" height="700">
+      </div>
+      <div class="column" id="espressoProject">
+        <h3>Comprehensive UI Testing - Espresso</h3>
+        <p> Automated UI testing framework for Ecosystem project. </p>
+          <img src="images/espresso-card.png" class="hover-image" alt="Card with Espresso Android icon." width="100%" height="700">
+      </div>
+      <div class="column">
+        <!-- <h3> Tacoma Music Player </h3>
+        <img src="images/tacoma-music-music-playing-screen.jpg" class="hover-image" alt="Tacoma Music Player, Main Music Playing Screen" width="100%" height="700"> -->
+      </div>
+    </div>
   </main>
 
   <footer>
-    <h3>Contact Phone Number: (253)-332-0014</h3>
-    <h3>Contact Email: andagicompany@gmail.com</h3>
-    <h3>LinkedIn: https://www.linkedin.com/in/david-taylor-029910166/</h3>
-    <p>&copy; 2025 The Andagi Company</p>
+    <h3 style="color: black;">Contact Phone Number: (253)-332-0014</h3>
+    <h3 style="color: black;">Contact Email: andagicompany@gmail.com</h3>
+    <h3 style="color: black;">LinkedIn: https://www.linkedin.com/in/david-taylor-029910166/</h3>
+    <p style="color: black;">&copy; 2025 The Andagi Company</p>
   </footer>
 
   <script src="script.js"></script>

@@ -2,29 +2,112 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
+}
+
+/* html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: aquamarine;
+} */
+
+div {
+  width: 100%;
+}
+
+.white-main {
+  background-color: white;
+  padding: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: center; /* distributes space evenly */
+  align-items: center;           /* centers items vertically */
+  background-color: lightBlue;
+  width: 100%;
+}
+
+.right-item {
+  margin-left: auto
+}
+
+.left-item {
+  margin-right: auto
 }
 
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-color: #f0f0f0;
+  background-color: skyblue;
   color: #333;
   padding: 20px;
 }
 
+.popup {
+  display: flex;
+  justify-content: center; /* horizontal */
+  align-items: center;     /* vertical */
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.videoColumn {
+  justify-content: center; /* horizontal */
+  align-items: center;     /* vertical */
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 header, footer {
-  background-color: #333;
+  background-color: skyblue;
   color: #fff;
-  padding: 10px 20px;
+  /* padding: 10px 10px; */
   text-align: center;
 }
 
-main {
-  margin: 20px auto;
+.hover-image {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.hover-image:hover {
+  filter: grayscale(0%);
+}
+
+.section-title {
+  background-color: skyblue;
+  padding: 10px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;     /* Allow items to wrap on smaller screens */
+  gap: 10px;            /* Optional spacing between columns */
+  width: 100%;
+}
+
+.column {
+  flex: 1 1 30%;        /* Grow, shrink, and base width */
+  min-width: 400px;     /* Prevent getting too small */
+  max-width: 500px;
+  background: lightblue;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* main { 
   max-width: 800px;
   text-align: center;
-}
+} */
 
 button {
   padding: 10px 20px;

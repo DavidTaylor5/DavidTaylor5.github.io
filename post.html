@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog Post</title>
+<link rel="stylesheet" href="format.css">
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+</head>
+<body>
+<header>
+<h1>Blog</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="blog.html">Blog</a>
+<a href="privacy.html">Privacy</a>
+<a href="permission.html">Permission</a>
+</nav>
+</header>
+
+<main class="article-main">
+<a id="back" class="back-link" href="blog.html">← Back to blog</a>
+<article id="article" class="post">Loading…</article>
+</main>
+
+<footer>
+<h3>Contact Phone Number: (253)-332-0014</h3>
+<h3>Contact Email: andagicompany@gmail.com</h3>
+<h3>LinkedIn: https://www.linkedin.com/in/david-taylor-029910166/</h3>
+<p>&copy; 2025 The Andagi Company</p>
+</footer>
+
+<script>
+  async function getJson(path) {
+    const res = await fetch(path);
+    if (!res.ok) throw new Error(path + " -> HTTP " + res.status);
+    return res.json();
+  }
+
+  async function main() {
+    const el = document.getElementById("article");
+    try {
+      const params = new URLSearchParams(location.search);
+      const topicId = params.get("topic");
+      const postId = params.get("post");
+
+      const topics = await getJson("data/topics.json");
+      const topic = topics.find(t => t.id === topicId);
+      if (!topic) throw new Error("Unknown topic: " + topicId);
+
+      document.getElementById("back").href = "blog.html#" + encodeURIComponent(topic.id);
+
+      const data = await getJson("data/" + topic.file);
+      const post = data.posts.find(p => p.id === postId);
+      if (!post) throw new Error("Unknown post: " + postId);
+
+      document.title = post.title + " | Blog";
+      el.innerHTML = "";
+
+      if (post.image) {
+        const img = document.createElement("img");
+        img.className = "article-hero";
+        img.src = post.image;
+        img.alt = "";
+        el.appendChild(img);
+      }
+
+      const title = document.createElement("h3");
+      title.textContent = post.title;
+
+      const meta = document.createElement("div");
+      meta.className = "post-meta";
+      meta.textContent = post.date + (post.author ? " · " + post.author : "") +
+        (post.tags && post.tags.length ? " · " + post.tags.join(", ") : "");
+
+      const rule = document.createElement("hr");
+
+      const body = document.createElement("div");
+      body.className = "post-body";
+      body.innerHTML = DOMPurify.sanitize(marked.parse(post.body));
+
+      el.append(title, meta, rule, body);
+    } catch (err) {
+      el.textContent = "Couldn't load this post.";
+      console.error(err);
+    }
+  }
+
+  main();
+</script>
+</body>
+</html>

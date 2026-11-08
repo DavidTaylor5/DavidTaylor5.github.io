@@ -165,3 +165,222 @@ button {
   font-size: 16px;
   cursor: pointer;
 }
+
+/* ---------- Blog ---------- */
+.blog-main {
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto;
+}
+
+.topic-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.topic-tabs a {
+  background-color: #ffffff;
+  color: #2c3e50;
+  border: 1px solid #2c3e50;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.topic-tabs a:hover {
+  background-color: #eaf0fb;
+}
+
+.topic-tabs a.active {
+  background-color: #3498db;
+  border-color: #3498db;
+  color: #ffffff;
+}
+
+.post {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.post h3 {
+  color: #2c3e50;
+}
+
+.post-meta {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  color: #6b7785;
+}
+
+.post hr {
+  border: 0;
+  border-top: 1px solid #dde3ea;
+  margin: 12px 0 16px;
+}
+
+/* Post body: restores the spacing that the global reset removes */
+.post-body {
+  text-align: start;
+}
+
+.post-body > * + * {
+  margin-top: 1rem;
+}
+
+.post-body h1,
+.post-body h2,
+.post-body h3,
+.post-body h4 {
+  color: #2c3e50;
+  margin-top: 1.5rem;
+}
+
+.post-body h2 { font-size: 1.25rem; }
+.post-body h3 { font-size: 1.1rem; }
+
+.post-body ul,
+.post-body ol {
+  padding-left: 1.5rem;
+}
+
+.post-body li + li {
+  margin-top: 0.25rem;
+}
+
+.post-body a {
+  color: #3498db;
+}
+
+.post-body img {
+  max-width: 100%;
+  height: auto;
+}
+
+.post-body blockquote {
+  border-left: 4px solid #3498db;
+  padding-left: 12px;
+  color: #555;
+}
+
+.post-body code {
+  font-family: ui-monospace, Consolas, monospace;
+  background-color: #eaf0fb;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.post-body pre {
+  background-color: #2c3e50;
+  color: #f5f7fa;
+  padding: 12px 16px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.post-body pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+.post-body table {
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+}
+
+.post-body th,
+.post-body td {
+  border: 1px solid #dde3ea;
+  padding: 6px 12px;
+  text-align: left;
+}
+
+.post-body th {
+  background-color: #eaf0fb;
+}
+
+/* ---------- Blog menu cards ---------- */
+.post-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.post-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.post-card-text {
+  padding: 16px;
+}
+
+.post-card-text h3 {
+  color: #2c3e50;
+}
+
+.post-card-text p {
+  margin-top: 8px;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 12px;
+  color: #3498db;
+  font-weight: 600;
+}
+
+/* ---------- Single article page ---------- */
+.article-main {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: #3498db;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.article-hero {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}

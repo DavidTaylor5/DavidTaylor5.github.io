@@ -1,0 +1,12 @@
+[
+  {
+    "id": "architecture",
+    "title": "Architecture",
+    "file": "architecture.json"
+  },
+  {
+    "id": "ui",
+    "title": "Ui",
+    "file": "ui.json"
+  }
+]

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog</title>
+<link rel="stylesheet" href="format.css">
+</head>
+<body>
+<header>
+<h1>Blog</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="blog.html">Blog</a>
+<a href="privacy.html">Privacy</a>
+<a href="permission.html">Permission</a>
+</nav>
+</header>
+
+<main class="blog-main">
+<div id="topics" class="topic-tabs"></div>
+<div id="posts" class="post-list">Loading…</div>
+</main>
+
+<footer>
+<h3>Contact Phone Number: (253)-332-0014</h3>
+<h3>Contact Email: andagicompany@gmail.com</h3>
+<h3>LinkedIn: https://www.linkedin.com/in/david-taylor-029910166/</h3>
+<p>&copy; 2025 The Andagi Company</p>
+</footer>
+
+<script>
+  async function getJson(path) {
+    const res = await fetch(path);
+    if (!res.ok) throw new Error(path + " -> HTTP " + res.status);
+    return res.json();
+  }
+
+  function renderTopics(topics, activeId) {
+    const tabs = document.getElementById("topics");
+    tabs.innerHTML = "";
+    for (const t of topics) {
+      const a = document.createElement("a");
+      a.href = "#" + t.id;
+      a.textContent = t.title;
+      if (t.id === activeId) a.className = "active";
+      tabs.appendChild(a);
+    }
+  }
+
+  function renderCards(topicId, posts) {
+    const container = document.getElementById("posts");
+    container.innerHTML = "";
+
+    if (posts.length === 0) {
+      container.textContent = "No posts yet.";
+      return;
+    }
+
+    posts.sort((a, b) => b.date.localeCompare(a.date));
+
+    for (const post of posts) {
+      const card = document.createElement("a");
+      card.className = "post-card";
+      card.href = "post.html?topic=" + encodeURIComponent(topicId) +
+                  "&post=" + encodeURIComponent(post.id);
+
+      if (post.image) {
+        const img = document.createElement("img");
+        img.src = post.image;
+        img.alt = "";
+        img.loading = "lazy";
+        card.appendChild(img);
+      }
+
+      const text = document.createElement("div");
+      text.className = "post-card-text";
+
+      const title = document.createElement("h3");
+      title.textContent = post.title;
+
+      const meta = document.createElement("div");
+      meta.className = "post-meta";
+      meta.textContent = post.date + (post.author ? " · " + post.author : "");
+
+      const summary = document.createElement("p");
+      summary.textContent = post.summary;
+
+      const more = document.createElement("span");
+      more.className = "read-more";
+      more.textContent = "Read more →";
+
+      text.append(title, meta, summary, more);
+      card.appendChild(text);
+      container.appendChild(card);
+    }
+  }
+
+  async function main() {
+    const container = document.getElementById("posts");
+    try {
+      const topics = await getJson("data/topics.json");
+      const id = location.hash.slice(1);
+      const topic = topics.find(t => t.id === id) || topics[0];
+      renderTopics(topics, topic.id);
+      const data = await getJson("data/" + topic.file);
+      renderCards(topic.id, data.posts);
+    } catch (err) {
+      container.textContent = "Couldn't load posts.";
+      console.error(err);
+    }
+  }
+
+  window.addEventListener("hashchange", main);
+  main();
+</script>
+</body>
+</html>

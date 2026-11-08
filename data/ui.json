@@ -1,0 +1,17 @@
+{
+  "posts": [
+    {
+      "id": "ui-overview",
+      "title": "State hoisting in Compose",
+      "date": "2026-11-08",
+      "author": "David Taylor",
+      "image": "https://davidtaylor5.github.io/images/blog/article.png",
+      "summary": "Moving state up so composables stay stateless and testable.",
+      "tags": [
+        "compose",
+        "state"
+      ],
+      "body": "## Intro\n\nThis is a **sample post**. Replace it with your own writing.\n\n## Example code\n\n```kotlin\n@Composable\nfun AppNavHost(navController: NavHostController) {\n    NavHost(navController, startDestination = \"home\") {\n        composable(\"home\") { HomeScreen() }\n    }\n}\n```\n\n- Standard Markdown only\n- Use absolute URLs for images and links"
+    }
+  ]
+}
